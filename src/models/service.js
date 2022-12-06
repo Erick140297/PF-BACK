@@ -1,40 +1,43 @@
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema(
+const serviceSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
     },
-    image: String,
+    image: {
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
     },
-    password: {
+    summary: {
       type: String,
       required: true,
     },
-    city: String,
-    address: String,
-    phone: String,
-    provider: {
-      type: Boolean,
+    availability: {
+      type: String,
+      required: true,
+    },
+    online: {
+      type: String,
+      required: true,
       default: false,
     },
-    admin: {
-      type: Boolean,
-      default: false,
+    price: {
+      type: Number,
+      required: true,
     },
     reviews: {
       type: Array,
       default: [],
     },
-    rating: Array,
-    payMethod: Object,
-    deleteLogic: {
-      type: Boolean,
-      default: false,
+    rating: {
+      type: Array,
+      default: [],
     },
   },
   {
@@ -43,13 +46,13 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.set("toJSON", {
+serviceSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
   },
 });
 
-const User = model("User", userSchema);
+const Service = model("Service", serviceSchema);
 
-module.exports = User;
+module.exports = Service;
