@@ -8,6 +8,7 @@ const get_providers = require("./get_providers");
 const post_provider = require("./post_provider");
 const put_provider = require("./put_provider"); */
 const post_user = require("./post_user");
+const get_user = require("./get_users");
 
 /* router.use(delete_provider);
 router.use(get_providerById);
@@ -16,5 +17,6 @@ router.use(get_providers);
 router.use(post_provider);
 router.use(put_provider); */
 router.use(post_user);
+router.use(get_user);
 
 module.exports = router;
