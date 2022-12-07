@@ -14,19 +14,19 @@ const serviceSchema = new Schema(
       type: String,
       required: true,
     },
-    availability: {
-      type: String,
-      // required: true,
-    },
+    // availability: {
+    //   type: String,
+    //   required: true,
+    // },
     online: {
       type: String,
       // required: true,
       // default: false,
     },
-    price: {
-      type: Number,
-      // required: true,
-    },
+    // price: {
+    //   type: Number,
+    //   // required: true,
+    // },
     reviews: {
       type: Array,
       default: [],

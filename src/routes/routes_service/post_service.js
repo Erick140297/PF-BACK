@@ -11,6 +11,7 @@ router.post("/services", async (req, res) => {
     const service = new Service({name, description, user:user._id});
     const savedService = await service.save();
     user.services = user.services.concat(savedService._id)
+    user.deleteLogic = true
     await user.save()
     res.status(200).json({ message: "Service saved successfully" });
   } catch (error) {
