@@ -8,28 +8,24 @@ const serviceSchema = new Schema(
     },
     image: {
       type: String,
-      required: true,
+      // required: true,
     },
-    email: {
-      type: String,
-      required: true,
-    },
-    summary: {
+    description: {
       type: String,
       required: true,
     },
     availability: {
       type: String,
-      required: true,
+      // required: true,
     },
     online: {
       type: String,
-      required: true,
-      default: false,
+      // required: true,
+      // default: false,
     },
     price: {
       type: Number,
-      required: true,
+      // required: true,
     },
     reviews: {
       type: Array,
@@ -39,19 +35,13 @@ const serviceSchema = new Schema(
       type: Array,
       default: [],
     },
+    user: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: false,
     versionKey: false,
   }
 );
-
-serviceSchema.set("toJSON", {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
-    delete returnedObject._id;
-  },
-});
 
 const Service = model("Service", serviceSchema);
 

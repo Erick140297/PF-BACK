@@ -36,6 +36,11 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    services: [
+      {
+        type: Schema.Types.ObjectId, ref: "Service" 
+      }
+    ]
   },
   {
     timestamps: false,
@@ -43,12 +48,12 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.set("toJSON", {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
-    delete returnedObject._id;
-  },
-});
+// userSchema.set("toJSON", {
+//   transform: (document, returnedObject) => {
+//     returnedObject.id = returnedObject._id.toString();
+//     delete returnedObject._id;
+//   },
+// });
 
 const User = model("User", userSchema);
 

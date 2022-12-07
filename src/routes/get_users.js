@@ -9,10 +9,10 @@ router.get("/users", async (req, res) => {
       const usersByName = await User.find({
         name: { $regex: name, $options: "i" },
         deleteLogic: false,
-      });
+      }).populate('services');
       res.status(200).json(usersByName);
     } else {
-      const users = await User.find({ deleteLogic: false });
+      const users = await User.find({ deleteLogic: false }).populate('services');
       res.status(200).json(users);
     }
   } catch (error) {
