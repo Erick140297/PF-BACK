@@ -10,7 +10,6 @@ router.delete("/users/:id", async (req, res) => {
     if (deleteTemporaly) {
       await User.findByIdAndUpdate(id, { deleteLogic: true });
       res.status(200).send({ message: "User deleted temporaly successfully" });
-      //const user = await User.find( id, { deleteLogic: false }).populate('services');
     } else {
       await User.findOneAndDelete({ id });
       res.status(200).send({ message: "User deleted successfully" });
