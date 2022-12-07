@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const User = require('../models/users')
+const User = require('../../models/users') //No estaba en la carpeta incorrecta.
 
 router.put("/users/:id", async (req, res) => {
     try {

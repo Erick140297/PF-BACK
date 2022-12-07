@@ -16,7 +16,7 @@ const salesSchema = new Schema(
         status: {
             type: Boolean,
             required: true, 
-        }
+        },
     },
     {
         timestamps: false,
