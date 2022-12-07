@@ -1,27 +1,14 @@
 const { Router } = require("express")
 const router = Router();
 
-/* const delete_provider = require("./delete_provider")
-const get_providerById = require("./get_providerById")
-const get_providerByName = require("./get_providerByName")
-const get_providers = require("./get_providers");
-const post_provider = require("./post_provider");
-const put_provider = require("./put_provider"); */
-const post_user = require("./post_user");
-const put_user = require("./put_user"); 
-const get_user = require("./get_users");
-const get_userById = require("./get_userById");
+const post_user = require("./routes_user/post_user");
+const put_user = require("./routes_user/put_user"); 
+const get_user = require("./routes_user/get_users");
+const get_userById = require("./routes_user/get_userById");
 const post_service = require("../routes/routes_service/post_service")
 const get_services = require("../routes/routes_service/get_services")
 const get_serviceById = require("../routes/routes_service/get_serviceById")
 
-
-/* router.use(delete_provider);
-router.use(get_providerById);
-router.use(get_providerByName);
-router.use(get_providers);
-router.use(post_provider);
-router.use(put_provider); */
 router.use(post_user);
 router.use(put_user);
 router.use(get_user);
