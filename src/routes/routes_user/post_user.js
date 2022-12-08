@@ -7,7 +7,7 @@ router.post("/users", async (req, res) => {
   try {
     const { name, email, password } = req.body
 
-    const saltRounds = 10
+    const saltRounds = 20
     const passwordHash = await bcrypt.hash(password, saltRounds)
 
     const user = new User({ name, email, passwordHash })
