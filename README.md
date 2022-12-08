@@ -6,6 +6,7 @@
 2. Comandos de **ejecución**
 3. Uso de **Rutas** 
 4. **Borrado lógico**
+5. **Login**
 ---
 ### 1. Configuración de **variables de entorno**
 
@@ -217,6 +218,38 @@ Contenido del body
 URL en un servidor local
 ```
 http://localhost:3001/users/id
+```
+
+---
+
+### 5. **Login**
+
+* POST /login
+
+Una petición a esta ruta responde con el **name** y **id** del usuario que esta iniciando sesión, además de un **token** que garantiza la seguridad de dicha sesión. 
+
+Contenido del body
+
+```JSON
+{
+  "email":"salvador@gmail.com",
+  "password":"123456"
+}
+```
+
+URL en un servidor local
+```
+http://localhost:3001/users/id
+```
+
+Ejemplo de la respuesta optenida:
+
+```JSON
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2FsdmFkb3IiLCJpZCI6IjYzOTI0NWYwMmQ0ZmY1MjVjNjkwZGUwNCIsImlhdCI6MTY3MDUzMDY5MX0.7IjlMKpU7icomMYhSiuPBDKqWSRxfjkj4dUCDlka41I",
+  "name": "Salvador",
+  "id": "639245f02d4ff525c690de04"
+}
 ```
 
 ---

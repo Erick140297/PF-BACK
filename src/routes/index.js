@@ -14,6 +14,7 @@ const delete_user = require("../routes/routes_user/delete_user");
 const get_userTemporaly = require("../routes/routes_user/get_usersTemporaly");
 const get_sales = require("../routes/routes_sales/get_sales");
 const get_salesById = require("../routes/routes_sales/get_sales");
+const login = require("../routes/login/login")
 
 router.use(post_user);
 router.use(put_user);
@@ -28,6 +29,6 @@ router.use(delete_service);
 router.use(delete_user);
 router.use(get_sales);
 router.use(get_salesById);
-
+router.use(login);
 
 module.exports = router;
