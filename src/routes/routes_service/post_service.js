@@ -5,13 +5,12 @@ const User = require("../../models/users");
 
 router.post("/services", async (req, res) => {
   try {
-    const { name, description, id} = req.body
+    const { name, description, online, id} = req.body
     const user = await User.findById(id)
-
-    const service = new Service({name, description, user:user._id});
+    const service = new Service({name, description, online, user:user._id});
     const savedService = await service.save();
     user.services = user.services.concat(savedService._id)
-    user.deleteLogic = true
+    user.provider = true
     await user.save()
     res.status(200).json({ message: "Service saved successfully" });
   } catch (error) {
