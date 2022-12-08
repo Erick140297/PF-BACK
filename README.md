@@ -18,6 +18,8 @@ El cual debe contener lo siguiente:
 
 ```JavaScript
 URL = "mongodb+srv://Erick:87SvnmsMkJagagKm@cluster0.g3htyhe.mongodb.net/?retryWrites=true&w=majority"
+
+SECRET = "MongoDB"
 ```
 
 ---
