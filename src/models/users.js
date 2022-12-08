@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const uniqueValidator = require("mongoose-unique-validator");
 
 const userSchema = new Schema(
   {
@@ -10,7 +11,7 @@ const userSchema = new Schema(
     email: {
       type: String,
       required: true,
-      unique:true
+      unique: true,
     },
     passwordHash: {
       type: String,
@@ -39,9 +40,10 @@ const userSchema = new Schema(
     },
     services: [
       {
-        type: Schema.Types.ObjectId, ref: "Service" 
-      }
-    ]
+        type: Schema.Types.ObjectId,
+        ref: "Service",
+      },
+    ],
   },
   {
     timestamps: false,
@@ -55,6 +57,8 @@ const userSchema = new Schema(
 //     delete returnedObject._id;
 //   },
 // });
+
+userSchema.plugin(uniqueValidator)
 
 const User = model("User", userSchema);
 
