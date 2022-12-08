@@ -19,7 +19,7 @@ const serviceSchema = new Schema(
     //   required: true,
     // },
     online: {
-      type: String,
+      type: Boolean,
       // required: true,
       // default: false,
     },
@@ -34,10 +34,6 @@ const serviceSchema = new Schema(
     rating: {
       type: Array,
       default: [],
-    },
-    deleteLogic: {
-      type: Boolean,
-      default: false,
     },
     user: { type: Schema.Types.ObjectId, ref: "User" },
   },

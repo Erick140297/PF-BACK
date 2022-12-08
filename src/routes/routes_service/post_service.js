@@ -5,9 +5,9 @@ const User = require("../../models/users");
 
 router.post("/services", async (req, res) => {
   try {
-    const { name, description, online, id} = req.body
+    const { name, image, description, online, id} = req.body
     const user = await User.findById(id)
-    const service = new Service({name, description, online, user:user._id});
+    const service = new Service({name, image, description, online, user:user._id});
     const savedService = await service.save();
     user.services = user.services.concat(savedService._id)
     user.provider = true

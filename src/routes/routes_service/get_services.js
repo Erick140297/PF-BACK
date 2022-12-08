@@ -5,14 +5,17 @@ const Service = require('../../models/service')
 router.get("/services", async (req, res) => {
   try {
     const { name } = req.query;
+    let services = [] 
     if (name) {
-      const serviceByName = await Service.find({
+      const data = await Service.find({
         name: { $regex: name, $options: "i" },
         deleteLogic: false,
       }).populate('user');
-      res.status(200).json(serviceByName);
+      services = data.filter(e => e.user.deleteLogic !== true)
+      res.status(200).json(services);
     } else {
-      const services = await Service.find().populate('user');
+      const data = await Service.find().populate('user');
+      services = data.filter(e => e.user.deleteLogic !== true)
       res.status(200).json(services);
     }
   } catch (error) {

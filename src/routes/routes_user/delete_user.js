@@ -6,8 +6,8 @@ const Services = require("../../models/service");
 router.delete("/users/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { deleteTemporaly } = req.query;
-    if (deleteTemporaly) {
+    const { deletelogic } = req.query;
+    if (deletelogic) {
       await User.findByIdAndUpdate(id, { deleteLogic: true });
       res.status(200).send({ message: "User deleted temporaly successfully" });
     } else {
