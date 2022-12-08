@@ -5,6 +5,7 @@
 1. Configuración de **variables de entorno**
 2. Comandos de **ejecución**
 3. Uso de **Rutas** 
+4. **Borrado lógico**
 ---
 ### 1. Configuración de **variables de entorno**
 
@@ -37,13 +38,13 @@ $ npm start
 
 ### 3. Uso de **Rutas** 
 
-* POST /provider
+* POST /users
 
-Esta ruta es utilizada para guardar en la base de datos un usuario de tipo *provider*, es necesario mandar en el body un *name*, un *email* y un *service*. Se muestra un ejemplo a continuación: 
+Esta ruta es utilizada para guardar en la base de datos un usuario, es necesario mandar en el body un *name*, un *email* y un *password*. Se muestra un ejemplo a continuación: 
 
 URL en un servidor local
 ```
-http://localhost:3001/provider
+http://localhost:3001/users
 ```
 
 Contenido del body
@@ -52,16 +53,170 @@ Contenido del body
 {
   "name":"erick",
   "email":"erick@gmail.com",
-  "service":"paseador de perros"
+  "password":"123456"
 }
 ```
 
-* GET /providers
+* GET /users
 
-La petición a esta ruta da como resultado un arreglo con los usuarios tipo *provider* almacenados en la base de datos.
+La petición a esta ruta da como resultado un arreglo con los usuarios almacenados en la base de datos.
 
 URL en un servidor local
 ```
-http://localhost:3001/providers
+http://localhost:3001/users
 ```
+* GET /users?name=name
+
+Para hacer una busqueda de usuario por nombre o coincidencia de nombre es necesario enviar por query dicha información a está ruta.
+
+URL en un servidor local
+```
+http://localhost:3001/users?name=name
+```
+
+* GET /users/:id
+
+Esta ruta requiere de un id de usuario enviado por params para dar como resultado los datos de dicho usuario.
+
+URL en un servidor local
+```
+http://localhost:3001/users/id
+```
+
+* PUT /users/:id
+
+Esta ruta tiene como función la actualización de datos de un usuario registrado en la base de datos, requiere de un id enviado por params y los datos correspondientes enviados por body. 
+
+URL en un servidor local
+```
+http://localhost:3001/users/id
+```
+Ejemplo de como se puede actualizar una propiedad del usuario:
+
+```JSON
+{
+  "name":"Erick Monterrubio"
+}
+```
+
+* DELETE /users/:id
+
+Para borrar a un usuario de forma permanente en la base de datos basta con hacer una petición a está ruta enviando por params el id del usuario que se desea eliminar
+
+URL en un servidor local
+```
+http://localhost:3001/users/id
+```
+
+* POST /services
+
+Para crear un nuevo servicio es necesario enviar por body un **name**, una **image**, una **description**, una propiedad **online** y el **id** del usuario que lo esta creando.
+
+Contenido del body
+
+```JSON
+{
+    "name":"Paseador de perros",
+    "image":"https://img.chilango.com/2019/12/Cotidiana_Polanco_-1-1024x683.jpg",
+    "description":"Se ofrece servicio como paseador de perros en CDMX",
+    "online":true,
+    "id":"639147857129763ba20113eb"
+}
+```
+
+URL en un servidor local
+```
+http://localhost:3001/services
+```
+
+* GET /services
+
+La petición a esta ruta da como resultado un arreglo con los servicios almacenados en la base de datos.
+
+URL en un servidor local
+```
+http://localhost:3001/services
+```
+
+* GET /services?name=name
+
+Para hacer una busqueda de servicio por nombre o coincidencia de nombre es necesario enviar por query dicha información a está ruta.
+
+URL en un servidor local
+```
+http://localhost:3001/services?name=name
+```
+
+* GET /services/:id
+
+Para hacer una busqueda de un servicio por id es necesario enviar por params el id de dicho usuario.
+
+URL en un servidor local
+```
+http://localhost:3001/services/id
+```
+
+* PUT /services/:id
+
+Para hacer una actualización a un servicio es necesario enviar por params el id de dicho servicio y por body los datos que se deseén actualizar.
+
+Contenido del body
+
+```JSON
+{
+    "name":"Paseador de perritos"
+}
+```
+
+URL en un servidor local
+```
+http://localhost:3001/services/id
+```
+
+* DELETE /services/:id
+
+Para borrar un servicio de forma permanente en la base de datos se necesita hacer una petición a está ruta enviando por params el id del usuario que se desea eliminar.
+
+URL en un servidor local
+```
+http://localhost:3001/services/id
+```
+---
+### 4.**Borrado lógico**
+
+* DELETE /users/:id?deletelogic=true
+
+Para hacer un borrado lógico de un usuario además de enviar por params el id de éste, es necesario enviar por query la propiedad deletelogic con un valor de true. 
+
+URL en un servidor local
+```
+http://localhost:3001/users/id?deletelogic=true
+```
+
+* GET /deletelogic
+
+Al realizar una petición a esta ruta se obtiene la información de los usuarios con esta condición.
+
+URL en un servidor local
+```
+http://localhost:3001/deletelogic
+```
+
+* PUT /users/:id
+
+Por último, el borrado lógico se puede anular al enviar una actualización a la información del usuario. 
+
+Contenido del body
+
+```JSON
+{
+    "deleteLogic": false
+}
+```
+
+URL en un servidor local
+```
+http://localhost:3001/users/id
+```
+
 ---
