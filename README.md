@@ -20,6 +20,10 @@ El cual debe contener lo siguiente:
 URL = "mongodb+srv://Erick:87SvnmsMkJagagKm@cluster0.g3htyhe.mongodb.net/?retryWrites=true&w=majority"
 
 SECRET = "MongoDB"
+
+CLOUDINARY_CLOUD_NAME = "dfaxzahb0"
+CLOUDINARY_API_SECRET = "477279579552534"
+CLOUDINARY_API_KEY = "8H7ZfZznu35WQ3bMH46QEXgWvLg"
 ```
 
 ---
