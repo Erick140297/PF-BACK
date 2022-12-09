@@ -19,7 +19,7 @@ router.get("/services", async (req, res) => {
       res.status(200).json(services);
     }
   } catch (error) {
-    res.status(400).json("Id not found");
+    res.status(400).json({mesage: error});
   }
 });
 
