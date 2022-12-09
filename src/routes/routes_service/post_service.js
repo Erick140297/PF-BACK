@@ -8,6 +8,10 @@ const router = Router();
 router.post("/services", async (req, res) => {
   try {
     const { name, description, online, id } = req.body;
+
+    console.log(req.body)
+    console.log(req.files)
+
     const user = await User.findById(id);
     const service = new Service({
       name,
