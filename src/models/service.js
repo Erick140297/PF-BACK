@@ -7,8 +7,8 @@ const serviceSchema = new Schema(
       required: true,
     },
     image: {
-      type: String,
-      // required: true,
+      secure_url: String,
+      public_id: String
     },
     description: {
       type: String,
