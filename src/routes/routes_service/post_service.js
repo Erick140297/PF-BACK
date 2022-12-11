@@ -2,21 +2,26 @@ const { Router } = require("express");
 const { uploadImage } = require("../../utils/cloudinary");
 const fs = require("fs-extra");
 const Service = require("../../models/service");
-const User = require("../../models/users");
+const User = require("../../models/user");
 const router = Router();
 
 router.post("/services", async (req, res) => {
   try {
-    const { name, description, online, id } = req.body;
+    const { userName, userEmail, userImage, name, description } = req.body;
 
-    console.log(req.body)
-    console.log(req.files)
+    let checkUser = await User.findOne({email:userEmail})
 
-    const user = await User.findById(id);
+    if(checkUser === null){
+      console.log(userName, userImage, userEmail)
+      checkUser = new User({name:userName,  image:userImage, email:userEmail}) 
+      await checkUser.save();
+    }
+
+    let user = await User.findOne({email:userEmail})
+     
     const service = new Service({
       name,
       description,
-      online,
       user: user._id,
     });
 
@@ -36,6 +41,7 @@ router.post("/services", async (req, res) => {
     res
       .status(200)
       .json({ message: "Service saved successfully", service: savedService });
+      // .json(checkUser);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
