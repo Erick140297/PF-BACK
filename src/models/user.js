@@ -13,10 +13,10 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    passwordHash: {
-      type: String,
-      required: true,
-    },
+    // passwordHash: {
+    //   type: String,
+    //   required: true,
+    // },
     city: String,
     address: String,
     phone: String,
@@ -28,11 +28,11 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    reviews: {
-      type: Array,
-      default: [],
-    },
-    rating: Array,
+    // reviews: {
+    //   type: Array,
+    //   default: [],
+    // },
+    // rating: Array,
     payMethod: Object,
     deleteLogic: {
       type: Boolean,

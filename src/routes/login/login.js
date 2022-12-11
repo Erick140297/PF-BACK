@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const router = Router();
 require("dotenv").config();
-const User = require("../../models/users");
+const User = require("../../models/user");
 
 const { SECRET } = process.env;
 
