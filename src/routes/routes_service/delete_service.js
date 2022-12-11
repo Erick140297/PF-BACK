@@ -6,7 +6,7 @@ const router = Router();
 router.delete("/services/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const service = await Service.findByIdAndDelete( id );
+    const service = await Service.findByIdAndDelete(id);
     if (!service) {
       return res.status(400).send({ message: "The service does not exist" });
     } else {

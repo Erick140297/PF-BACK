@@ -18,11 +18,11 @@ const serviceSchema = new Schema(
     //   type: String,
     //   required: true,
     // },
-    online: {
-      type: Boolean,
+    // online: {
+    //   type: Boolean,
       // required: true,
       // default: false,
-    },
+    // },
     // price: {
     //   type: Number,
     //   // required: true,
