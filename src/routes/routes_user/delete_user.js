@@ -19,20 +19,20 @@ const Services = require("../../models/service");
 //   }
 // });
 
-router.delete("/users/:id", async (req, res) => {
+router.delete("/users/:email", async (req, res) => {
   try {
-    const { id } = req.params;
-    const user = await User.findById(id).populate("services");
+    const { email } = req.params;
+    const user = await User.find({email: email}).populate("services");
     let servicesArray = [];
     user.services.forEach((e) => {
       servicesArray.push(e._id);
     });
 
     servicesArray.map(async (e) => {
-      await Services.findByIdAndDelete(e);
+      await Services.findOneAndDelete({e});
     });
 
-    await User.findByIdAndDelete(id);
+    await User.findOneAndDelete({email: email});
 
     // const user2 = await User.findById(id).populate("services")
     // if(user2.services.length === 0) await User.findByIdAndDelete(id)

@@ -44,6 +44,12 @@ const userSchema = new Schema(
         ref: "Service",
       },
     ],
+    sales: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Sales",
+      },
+    ],
   },
   {
     timestamps: false,

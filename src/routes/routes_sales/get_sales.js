@@ -9,14 +9,14 @@ router.get("/sales", async (req, res) => {
       const salesByName = await Sales.find({
         name: { $regex: name, $options: "i" },
         deleteLogic: false,
-      }).populate('user');
+      }).populate('user', 'serviceId');
       res.status(200).json(salesByName);
     } else {
-      const sales = await Sales.find().populate('user');
+      const sales = await Sales.find().populate('user', 'serviceId');
       res.status(200).json(sales);
     }
   } catch (error) {
-    res.status(400).json("Id not found");
+    res.status(400).json("Sales not found");
   }
 });
 
