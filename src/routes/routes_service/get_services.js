@@ -9,14 +9,14 @@ router.get("/services", async (req, res) => {
     if (name) {
       const data = await Service.find({
         name: { $regex: name, $options: "i" },
-        deleteLogic: false,
+        // deleteLogic: false,
       }).populate('user');
-      services = data.filter(e => e.user.deleteLogic !== true)
-      res.status(200).json(services);
+      // services = data.filter(e => e.user.deleteLogic !== true)
+      res.status(200).json(data);
     } else {
       const data = await Service.find().populate('user');
-      services = data.filter(e => e.user.deleteLogic !== true)
-      res.status(200).json(services);
+      // services = data.filter(e => e.user.deleteLogic !== true)
+      res.status(200).json(data);
     }
   } catch (error) {
     res.status(400).json({mesage: error});
