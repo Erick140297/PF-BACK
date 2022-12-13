@@ -48,6 +48,12 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Cart",
     },
+    sales: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Sales",
+      },
+    ],
   },
   {
     timestamps: false,

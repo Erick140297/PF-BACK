@@ -1,22 +1,26 @@
 const { Schema, model } = require("mongoose");
 
 const salesSchema = new Schema(
-    {
+    {   
+        name: String,
         price: {
             type: Number,
             required: true,
         },
         payMethod: {
-            type: String,
-            required: true,
+            type: Object,
+            //required: true,
         },
         note: {
             type: String,
         },
         status: {
             type: Boolean,
-            required: true, 
+            //required: true, 
         },
+        serviceId: { type: Schema.Types.ObjectId, ref: "Service" },
+        providerId: { type: Schema.Types.ObjectId, ref: "User" },
+        claimerId: { type: Schema.Types.ObjectId, ref: "User" },
     },
     {
         timestamps: false,
