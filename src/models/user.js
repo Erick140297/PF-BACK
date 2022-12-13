@@ -44,6 +44,10 @@ const userSchema = new Schema(
         ref: "Service",
       },
     ],
+    cart:{
+      type: Schema.Types.ObjectId,
+      ref: "Cart",
+    },
   },
   {
     timestamps: false,
