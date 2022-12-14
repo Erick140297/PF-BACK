@@ -10,7 +10,7 @@ mongoose.set('strictQuery', true)
 
 const db = () => {
   const conn = mongoose.connect(process.env.URL)
-  console.log("Connected to MonDB");
+  console.log("Connected to MongoDB");
 };
 
 module.exports = db;
