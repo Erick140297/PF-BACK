@@ -3,9 +3,9 @@ const db = require("./db");
 
 const PORT = process.env.PORT || 3001;
 
-const server = async () => {
+const server = () => {
   try {
-    await db();
+    db();
     app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
   } catch (error) {
     console.log(error);

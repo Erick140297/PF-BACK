@@ -1,13 +1,16 @@
 const { connect } = require("mongoose");
+const mongoose = require("mongoose");
 require('dotenv').config()
 
-const { URL } = process.env
+mongoose.set('strictQuery', true)
+
+// const { URL } = process.env
 
 // If the MongoDB service doesn't not start. Open a terminal and run mongod
 
-const db = async () => {
-  const conn = await connect(URL);
-  console.log("DB connected to", conn.connection.name);
+const db = () => {
+  const conn = mongoose.connect(process.env.URL)
+  console.log("Connected to MonDB");
 };
 
 module.exports = db;
