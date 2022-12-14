@@ -1,15 +1,16 @@
 const app = require("./app");
 const db = require("./db");
 
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 
 const server = async () => {
   try {
     await db();
-    app.listen(port, () => console.log(`Server listening on port ${port}`));
+    app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
   } catch (error) {
     console.log(error);
   }
 };
 
 server()
+
