@@ -4,14 +4,14 @@ require("dotenv").config;
 
 const sendMail = async (userName, userEmail, name) => {
 
-  const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN } = process.env;
+  // const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN } = process.env;
 
-  // const CLIENT_ID =
-  //   "1077631869308-iui2hkd43nicvuqrih4jj54jv4bfqbbg.apps.googleusercontent.com";
-  // const CLIENT_SECRET = "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";
-  // const REDIRECT_URI = "https://developers.google.com/oauthplayground";
-  // const REFRESH_TOKEN =
-  //   "1//04OtQpsXU8ZfQCgYIARAAGAQSNwF-L9IrC_2Vd8jjazwbZl83YxQtyeLkuLfHhjoKdBpB8UcdaKlyufWxrSAYj-c5kp1ZyxtE4xk";
+  const CLIENT_ID =
+    "1077631869308-iui2hkd43nicvuqrih4jj54jv4bfqbbg.apps.googleusercontent.com";
+  const CLIENT_SECRET = "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";
+  const REDIRECT_URI = "https://developers.google.com/oauthplayground";
+  const REFRESH_TOKEN =
+    "1//04OtQpsXU8ZfQCgYIARAAGAQSNwF-L9IrC_2Vd8jjazwbZl83YxQtyeLkuLfHhjoKdBpB8UcdaKlyufWxrSAYj-c5kp1ZyxtE4xk";
 
   const oAuth2Client = new google.auth.OAuth2(
     CLIENT_ID,
