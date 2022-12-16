@@ -43,5 +43,10 @@ const login = require("../routes/login/login")
 
 router.use(login);
 
+//Email Test
+const emailTest = require("./emailTest")
+
+router.use(emailTest);
+
 
 module.exports = router;
