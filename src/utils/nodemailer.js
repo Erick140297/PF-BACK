@@ -42,9 +42,9 @@ const sendMail = async (userName, userEmail, name) => {
       },
     });
     const mailOptions = {
-      from: "Enviado con nodemailer <freelanceworkerspf@gmail.com>",
+      from: "<freelanceworkerspf@gmail.com>",
       to: `${userEmail}`,
-      subject: "Nodemailer Test",
+      subject: "Services",
       html: contentHtml,
     };
     const result = await transporter.sendMail(mailOptions);
