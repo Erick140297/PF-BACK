@@ -23,10 +23,10 @@ const serviceSchema = new Schema(
       // required: true,
       // default: false,
     // },
-    // price: {
-    //   type: Number,
-    //   // required: true,
-    // },
+    price: {
+      type: Number,
+      // required: true,
+    },
     reviews: {
       type: Array,
       default: [],
