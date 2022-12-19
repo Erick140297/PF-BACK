@@ -9,6 +9,7 @@ const get_userById = require("./routes_user/get_userById");
 const get_userByEmail = require("./routes_user/get_userByEmail");
 const delete_user = require("../routes/routes_user/delete_user");
 const get_userTemporaly = require("../routes/routes_user/get_usersTemporaly");
+const get_userByEmail = require("./routes_user/get_userByEmail");
 
 router.use(post_user);
 router.use(put_user);

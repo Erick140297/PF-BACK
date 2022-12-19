@@ -8,7 +8,7 @@ const User = require("../../models/user");
 const { SECRET } = process.env;
 
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   const user = await User.findOne({ email });
   const passwordCorrect =
@@ -26,7 +26,6 @@ router.post("/login", async (req, res) => {
   };
 
   const token = jwt.sign(userForToken, SECRET);
-
   res.status(200).send({ token, name: user.name, id: user._id });
 });
 
