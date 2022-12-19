@@ -7,9 +7,8 @@ const put_user = require("./routes_user/put_user");
 const get_user = require("./routes_user/get_users");
 const get_userById = require("./routes_user/get_userById");
 const get_userByEmail = require("./routes_user/get_userByEmail");
-const delete_user = require("../routes/routes_user/delete_user");
-const get_userTemporaly = require("../routes/routes_user/get_usersTemporaly");
-const get_userByEmail = require("./routes_user/get_userByEmail");
+const delete_user = require("./routes_user/delete_user");
+const get_userTemporaly = require("./routes_user/get_usersTemporaly");
 
 router.use(post_user);
 router.use(put_user);
@@ -33,14 +32,14 @@ router.use(put_service);
 router.use(delete_service);
 
 //Sales
-const get_sales = require("../routes/routes_sales/get_sales");
-const get_salesById = require("../routes/routes_sales/get_sales");
+const get_sales = require("./routes_sales/get_sales");
+const get_salesById = require("./routes_sales/get_sales");
 
 router.use(get_sales);
 router.use(get_salesById);
 
 //Login
-const login = require("../routes/login/login")
+const login = require("./login/login")
 
 router.use(login);
 
