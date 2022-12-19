@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
-const fileUpload = require('express-fileUpload')
+// const fileUpload = require('express-fileUpload')
 const routes = require('./routes/index.js')
 
 const app = express()
@@ -9,10 +9,10 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 app.use(morgan('dev'))
-app.use(fileUpload({
-    useTempFiles: true,
-    tempFileDir: "./uploads"
-}))
+// app.use(fileUpload({
+//     useTempFiles: true,
+//     tempFileDir: "./uploads"
+// }))
 app.use(routes)
 
 /* app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
