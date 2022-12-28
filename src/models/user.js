@@ -15,7 +15,7 @@ const userSchema = new Schema(
     },
     passwordHash: {
       type: String,
-      required: true,
+      //required: true,
     },
     city: String,
     address: String,
