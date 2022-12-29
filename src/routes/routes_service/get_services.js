@@ -3,6 +3,11 @@ const router = Router();
 const Service = require('../../models/service')
 
 router.get("/services", async (req, res) => {
+
+// let services = await Service.find().populate('user')
+// res.status(200).json(services);
+
+
   try {
     const { name } = req.query;
     let services = [] 

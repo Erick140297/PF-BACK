@@ -6,14 +6,6 @@ const cartSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Service',
   }],
-  totalPrice: {
-    type: Number,
-    required: true,
-  },
-  purchaseDate: {
-    type: Date,
-    default: Date.now,
-  },
   user:{
     type: Schema.Types.ObjectId,
     ref: "User",

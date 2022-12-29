@@ -14,18 +14,8 @@ const serviceSchema = new Schema(
       type: String,
       required: true,
     },
-    // availability: {
-    //   type: String,
-    //   required: true,
-    // },
-    // online: {
-    //   type: Boolean,
-      // required: true,
-      // default: false,
-    // },
     price: {
       type: Number,
-      // required: true,
     },
     reviews: {
       type: Array,

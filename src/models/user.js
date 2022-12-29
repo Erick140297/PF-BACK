@@ -11,11 +11,9 @@ const userSchema = new Schema(
     email: {
       type: String,
       required: true,
-      //unique: true,
     },
     passwordHash: {
       type: String,
-      //required: true,
     },
     city: String,
     address: String,
@@ -28,11 +26,6 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    // reviews: {
-    //   type: Array,
-    //   default: [],
-    // },
-    // rating: Array,
     payMethod: Object,
     deleteLogic: {
       type: Boolean,
@@ -44,10 +37,10 @@ const userSchema = new Schema(
         ref: "Service",
       },
     ],
-    cart:{
+    cart:[{
       type: Schema.Types.ObjectId,
       ref: "Cart",
-    },
+    }],
     sales: [
       {
         type: Schema.Types.ObjectId,
