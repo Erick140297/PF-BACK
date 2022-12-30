@@ -1,9 +1,9 @@
-const { Router } = require("express")
+const { Router } = require("express");
 const router = Router();
 
 //User
 const post_user = require("./routes_user/post_user");
-const put_user = require("./routes_user/put_user"); 
+const put_user = require("./routes_user/put_user");
 const get_user = require("./routes_user/get_users");
 const get_userById = require("./routes_user/get_userById");
 const get_userByEmail = require("./routes_user/get_userByEmail");
@@ -19,8 +19,8 @@ router.use(get_userByEmail);
 router.use(delete_user);
 
 //Service
-const post_service = require("../routes/routes_service/post_service")
-const get_services = require("../routes/routes_service/get_services")
+const post_service = require("../routes/routes_service/post_service");
+const get_services = require("../routes/routes_service/get_services");
 const get_serviceById = require("../routes/routes_service/get_serviceById");
 const put_service = require("../routes/routes_service/put_service");
 const delete_service = require("../routes/routes_service/delete_service");
@@ -39,14 +39,20 @@ router.use(get_sales);
 router.use(get_salesById);
 
 //Login
-const login = require("./login/login")
+const login = require("./login/login");
 
 router.use(login);
 
 //Email Test
-const emailTest = require("./emailTest")
+const emailTest = require("./emailTest");
 
 router.use(emailTest);
 
+//Categories
+const categories = require("./filters/categories");
+const categories_name = require("./filters/categories_name");
+
+router.use(categories);
+router.use(categories_name);
 
 module.exports = router;
