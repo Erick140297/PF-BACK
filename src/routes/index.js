@@ -55,4 +55,15 @@ const categories_name = require("./filters/categories_name");
 router.use(categories);
 router.use(categories_name);
 
+//Payment
+//const paymentCreate = require("./payment/payment.create");
+// const paymentCapture = require("./payment/payment.capture");
+// const paymentCancel = require("./payment/payment.cancel");
+const paymentRoutes = require("./payment/payment.routes")
+
+//router.use(paymentCreate);
+// router.use(paymentCapture);
+// router.use(paymentCancel);
+router.use(paymentRoutes)
+
 module.exports = router;
