@@ -1,6 +1,18 @@
 const { Router } = require("express");
 const router = Router();
 
+//Home
+
+router.get("/", async (req, res) => {
+    try {
+    res.status(200).send("Back deployado");
+    } catch (error) {
+    res.status(400).json(error);
+    }
+})
+
+module.exports = router;
+
 //User
 const post_user = require("./routes_user/post_user");
 const put_user = require("./routes_user/put_user");
