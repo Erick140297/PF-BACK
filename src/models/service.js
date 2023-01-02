@@ -25,6 +25,13 @@ const serviceSchema = new Schema(
       type: Array,
       default: [],
     },
+    country: {
+      type: String,
+      required: true
+    },
+    /* location: {
+
+    }, */
     user: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
