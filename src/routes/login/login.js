@@ -14,8 +14,9 @@ router.post("/login", async (req, res) => {
   if(user){
     res.status(200).send({user});
   } else if(!user && name && email && password) {
-      const saltRounds = 10
-      const passwordHash = await bcrypt.hash(password, saltRounds)
+    const saltRounds = 10
+    const passwordHash = await bcrypt.hash(password, saltRounds)
+    console.log(passwordHash);
   
       const userNew = new User({ name, email, passwordHash })
       //const user = new User({ name, email })
