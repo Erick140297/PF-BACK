@@ -79,7 +79,11 @@ const captureOrder = async (req, res) => {
 }
 
 const cancelOrder = (req, res) => {
-    res.redirect("http://localhost:5173/")
+
+  
+
+    res.redirect("https://pf-front-three.vercel.app/paymentDeclined")
+
 }
 
 
