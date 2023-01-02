@@ -75,7 +75,7 @@ const captureOrder = async (req, res) => {
     });
     console.log(response.data)
     return res.redirect("https://pf-front-three.vercel.app/payment");
-    
+    //55
 }
 
 const cancelOrder = (req, res) => {
