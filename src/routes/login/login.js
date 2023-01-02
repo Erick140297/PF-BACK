@@ -11,7 +11,17 @@ router.post("/login", async (req, res) => {
   const { name, email, password } = req.body;
 
   const user = await User.findOne({ email });
-  res.status(200).send({user});
+  if(user){
+    res.status(200).send({user});
+  } else if(!user && name && email && password) {
+      const saltRounds = 10
+      const passwordHash = await bcrypt.hash(password, saltRounds)
+  
+      const userNew = new User({ name, email, passwordHash })
+      //const user = new User({ name, email })
+      await userNew.save();
+      res.status(200).json(userNew);
+  }
   // const passwordCorrect =
   //   user === null ? false : bcrypt.compare(password, user.passwordHash);
 
