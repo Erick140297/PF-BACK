@@ -74,12 +74,12 @@ const captureOrder = async (req, res) => {
         }
     });
     console.log(response.data)
-    return res.redirect("http://localhost:5173/payment");
+    return res.redirect("https://pf-front-three.vercel.app/payment");
     
 }
 
 const cancelOrder = (req, res) => {
-    res.redirect("http://localhost:5173/")
+    res.redirect("https://pf-front-three.vercel.app/")
 }
 
 
