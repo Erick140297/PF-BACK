@@ -14,8 +14,7 @@ const upload = multer({ dest: 'uploads/' })
 router.post("/services", upload.single("image"), async (req, res) => {
   try {
     
-    const { userName, userEmail, name, price, description } = req.body;
-
+    const { userName, userEmail, name, price, description, country } = req.body;
     // const authorization = request.get('authorization')
     // let token = '';
     // if(authorization && authorization.toLowerCase().startsWith('bearer')){
@@ -35,12 +34,13 @@ router.post("/services", upload.single("image"), async (req, res) => {
     }
 
     let user = await User.findOne({email:userEmail})
-     
+
     const service = new Service({
       name,
       description,
       price,
       user: user._id,
+      country
     });
 
     if (req.file.fieldname) {
