@@ -8,14 +8,10 @@ const api = "https://api-m.sandbox.paypal.com"
 const apiClient = "AdnJQyg6JjZw8Nes6-8ZLubBZtx-KgtfuqMvjPCNyhF-B2cg8qrcR6c5jwgo05QOhFnHrnMLHwV1wYpb"
 const apiSecret = "EMYbVa99AGaaI4mETE0Uk1GsE43g_RwurN_3_pjCWcz9dWiSms2Tnfd823XyhzTkQmWprMA0WXbcUJ5G"
 
-
-
 const createOrder = async (req, res) => {
     try {
-
-        const { value, description } = req.body;
-
         //Doc:  https://developer.paypal.com/docs/api/orders/v2/
+        const { value, description } = req.body;
         const order = {
             intent: "CAPTURE",
             purchase_units: [
@@ -50,21 +46,19 @@ const createOrder = async (req, res) => {
             }
         })
 
-        //console.log(access_token);
         //Create order: https://developer.paypal.com/api/rest/requests/
         const response = await axios.post(`${api}/v2/checkout/orders`, order, {
             headers: {
                 Authorization: `Bearer ${access_token}`
             }
         });
-
         res.json(response.data);
+
     } catch(error) {
         return res.status(500).send("Something went wrong");
     }
     
 }
-
 
 const captureOrder = async (req, res) => {
     //Capture order: https://developer.paypal.com/docs/api/orders/v2/
@@ -76,20 +70,12 @@ const captureOrder = async (req, res) => {
             password: apiSecret
         }
     });
-    console.log(response.data)
     return res.redirect("https://pf-front-three.vercel.app/payment");
-    //55
 }
 
 const cancelOrder = (req, res) => {
-
-  
-
     res.redirect("https://pf-front-three.vercel.app/paymentDeclined")
-
 }
-
-
 
 module.exports = {
     cancelOrder, 
