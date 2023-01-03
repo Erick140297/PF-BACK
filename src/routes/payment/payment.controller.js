@@ -1,9 +1,12 @@
 const axios = require("axios");
 
-require('dotenv').config();
-const api = process.env.PAYPAL_API
-const apiClient = process.env.PAYPAL_API_CLIENT
-const apiSecret = process.env.PAYPAL_API_SECRET
+// require('dotenv').config();
+// const api = process.env.PAYPAL_API
+// const apiClient = process.env.PAYPAL_API_CLIENT
+// const apiSecret = process.env.PAYPAL_API_SECRET
+const api = "https://api-m.sandbox.paypal.com"
+const apiClient = "AdnJQyg6JjZw8Nes6-8ZLubBZtx-KgtfuqMvjPCNyhF-B2cg8qrcR6c5jwgo05QOhFnHrnMLHwV1wYpb"
+const apiSecret = "EMYbVa99AGaaI4mETE0Uk1GsE43g_RwurN_3_pjCWcz9dWiSms2Tnfd823XyhzTkQmWprMA0WXbcUJ5G"
 
 
 
