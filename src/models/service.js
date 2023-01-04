@@ -29,9 +29,9 @@ const serviceSchema = new Schema(
       type: String,
       required: true
     },
-    /* location: {
-
-    }, */
+    average:{
+      type:Number
+    },
     user: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
