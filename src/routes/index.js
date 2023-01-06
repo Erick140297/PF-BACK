@@ -54,6 +54,7 @@ router.use(get_salesById);
 const login = require("./login/login");
 const login_google = require("./login/login_google");
 
+router.use(login);
 router.use(login_google);
 
 //Email Test
