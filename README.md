@@ -27,6 +27,11 @@ CLOUDINARY_CLOUD_NAME = "dfaxzahb0"
 CLOUDINARY_API_SECRET = "477279579552534"
 CLOUDINARY_API_KEY = "8H7ZfZznu35WQ3bMH46QEXgWvLg"
 
+CLIENT_ID ="1077631869308-iui2hkd43nicvuqrih4jj54jv4bfqbbg.apps.googleusercontent.com"
+CLIENT_SECRET = "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"
+REDIRECT_URI = "https://developers.google.com/oauthplayground"
+REFRESH_TOKEN = "1//04OtQpsXU8ZfQCgYIARAAGAQSNwF-L9IrC_2Vd8jjazwbZl83YxQtyeLkuLfHhjoKdBpB8UcdaKlyufWxrSAYj-c5kp1ZyxtE4xk"
+
 PAYPAL_API = "https://api-m.sandbox.paypal.com"
 PAYPAL_API_CLIENT = "AdnJQyg6JjZw8Nes6-8ZLubBZtx-KgtfuqMvjPCNyhF-B2cg8qrcR6c5jwgo05QOhFnHrnMLHwV1wYpb"
 PAYPAL_API_SECRET = "EMYbVa99AGaaI4mETE0Uk1GsE43g_RwurN_3_pjCWcz9dWiSms2Tnfd823XyhzTkQmWprMA0WXbcUJ5G"
