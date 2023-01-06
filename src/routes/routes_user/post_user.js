@@ -11,9 +11,8 @@ router.post("/users", async (req, res) => {
     if (password) {
       const saltRounds = 10
       const passwordHash = await bcrypt.hash(password, saltRounds)
-  
+      // const passwordHash = password
       const user = new User({ name, email, passwordHash })
-      //const user = new User({ name, email })
       await user.save();
       res.status(200).json({ message: "User saved successfully" });      
     } else {
