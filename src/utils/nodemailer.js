@@ -11,7 +11,7 @@ const sendMail = async (userName, userEmail, name) => {
   const CLIENT_SECRET = "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";
   const REDIRECT_URI = "https://developers.google.com/oauthplayground";
   const REFRESH_TOKEN =
-    "1//04OtQpsXU8ZfQCgYIARAAGAQSNwF-L9IrC_2Vd8jjazwbZl83YxQtyeLkuLfHhjoKdBpB8UcdaKlyufWxrSAYj-c5kp1ZyxtE4xk";
+    "1//04znmjKCo-bVQCgYIARAAGAQSNwF-L9IrNsZulRnO66_1AvANf6vggQRoYY5olcEK8J-FlPbSDoedwa2bwbe-4g-MWI_zwuLkvdk";
 
   const oAuth2Client = new google.auth.OAuth2(
     CLIENT_ID,
