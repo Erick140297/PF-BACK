@@ -7,10 +7,10 @@ const router = express.Router();
 
 router.post('/cart', async (req, res) => {
   try {
-    const {userId, serviceId } = req.body
+    const {email, serviceId } = req.body
 
     let service = await Service.findById(serviceId)
-    let user = await User.findById(userId)
+    let user = await User.findOne({email})
 
     if(user.cart.length === 0){
       const newCart = new Cart({
