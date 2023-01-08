@@ -43,6 +43,15 @@ router.use(get_serviceById);
 router.use(put_service);
 router.use(delete_service);
 
+//Cart
+const post_cart = require("../routes/routes_cart/post_cart")
+const delete_cart = require("../routes/routes_cart/delete_cart")
+const get_cart = require("../routes/routes_cart/get_cart")
+
+router.use(post_cart)
+router.use(delete_cart)
+router.use(get_cart)
+
 //Sales
 const get_sales = require("./routes_sales/get_sales");
 const get_salesById = require("./routes_sales/get_sales");

@@ -1,19 +1,24 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-// Definimos el esquema para nuestro modelo de carrito de compras
-const cartSchema = new mongoose.Schema({
-  services: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Service',
-  }],
-  user:{
-    type: Schema.Types.ObjectId,
-    ref: "User",
+const cartSchema = new Schema(
+  {
+    services: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Service",
+      },
+    ],
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
-});
+  {
+    timestamps: false,
+    versionKey: false,
+  }
+);
 
-// Creamos el modelo a partir del esquema
-const Cart = mongoose.model('Cart', cartSchema);
+const Cart = model("Cart", cartSchema);
 
-// Exportamos el modelo para poder utilizarlo en otros archivos de nuestro proyecto
 module.exports = Cart;
