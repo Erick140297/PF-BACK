@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 require("dotenv").config;
 
-const sendMail = async (userName, userEmail, name) => {
+const sendMail = async (contentHtml, email) => {
 
   // const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN } = process.env;
 
@@ -22,12 +22,12 @@ const sendMail = async (userName, userEmail, name) => {
   oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
   try {
-    const contentHtml = `
-      <h1>e-mail enviado con nodemailer</h1>
-      <ul>
-        <li>Welcome: ${userName}</li>
-        <li>message: The service ${name} has been created successfully</li>
-      </ul>`;
+    // const contentHtml = `
+    //   <h1>e-mail enviado con nodemailer</h1>
+    //   <ul>
+    //     <li>Welcome: ${userName}</li>
+    //     <li>message: The service ${name} has been created successfully</li>
+    //   </ul>`;
 
     const accessToken = await oAuth2Client.getAccessToken();
     const transporter = nodemailer.createTransport({
@@ -43,7 +43,7 @@ const sendMail = async (userName, userEmail, name) => {
     });
     const mailOptions = {
       from: "<freelanceworkerspf@gmail.com>",
-      to: `${userEmail}`,
+      to: `${email}`,
       subject: "Services",
       html: contentHtml,
     };

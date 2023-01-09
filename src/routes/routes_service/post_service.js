@@ -15,16 +15,7 @@ router.post("/services", upload.single("image"), async (req, res) => {
   try {
     
     const { userName, userEmail, name, price, description, country } = req.body;
-    // const authorization = request.get('authorization')
-    // let token = '';
-    // if(authorization && authorization.toLowerCase().startsWith('bearer')){
-    //   token = authorization.substring(7)
-    // }
-    // const decodedToken = jwt.verify(token, process.env.SECRET)
-    // if(!token || !decodedToken.id){
-    //   return res.status(401).json({ error: 'Token missing or invalid.' })
-    // }
-
+    
     let checkUser = await User.findOne({email:userEmail})
 
     if(checkUser === null){
@@ -56,7 +47,13 @@ router.post("/services", upload.single("image"), async (req, res) => {
     user.services = user.services.concat(savedService._id);
     user.provider = true;
     await user.save();
-    // await sendMail(userName, userEmail, name);
+
+    const contentHtml = `
+    <h1>congratulations</h1>
+    <br/><br/>
+    <h1>Your service has been successfully created</h1>
+      `
+    await sendMail(contentHtml, userEmail);
     res
       .status(200)
       .json({ message: "Service saved successfully", service: savedService });
