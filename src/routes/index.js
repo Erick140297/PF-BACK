@@ -79,14 +79,13 @@ router.use(categories);
 router.use(categories_name);
 
 //Payment
-//const paymentCreate = require("./payment/payment.create");
-// const paymentCapture = require("./payment/payment.capture");
-// const paymentCancel = require("./payment/payment.cancel");
-const paymentRoutes = require("./payment/payment.routes")
+const paymentRoutes = require("./payment/payment.routes");
 
-//router.use(paymentCreate);
-// router.use(paymentCapture);
-// router.use(paymentCancel);
-router.use(paymentRoutes)
+router.use(paymentRoutes);
+
+//Orders
+const ordersRoutes = require("./orders/orders.routes");
+
+router.use(ordersRoutes);
 
 module.exports = router;

@@ -52,6 +52,8 @@ const createOrder = async (req, res) => {
                 Authorization: `Bearer ${access_token}`
             }
         });
+        //response.config.data can be use to capture info
+        // console.log(response.data)
         res.json(response.data);
 
     } catch(error) {
@@ -70,6 +72,23 @@ const captureOrder = async (req, res) => {
             password: apiSecret
         }
     });
+    // console.log(response.data.links[0].href)
+    const link = await axios.get(response.data.links[0].href, {
+        auth: {
+            username: apiClient,
+            password: apiSecret
+        }
+    })
+    servicesId = JSON.parse(link.data.purchase_units[0].description);
+    const userMail = servicesId.pop()
+
+    await axios.post(`http://localhost:3001/orders`, {
+        purchaseId: link.data.id,
+        status: link.data.status,
+        servicesId,
+        userMail
+    });
+
     return res.redirect("http://localhost:5173/payment");
 }
 
