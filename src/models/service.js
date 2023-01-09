@@ -30,7 +30,8 @@ const serviceSchema = new Schema(
       required: true
     },
     average:{
-      type:Number
+      type:Number,
+      default: 0
     },
     user: { type: Schema.Types.ObjectId, ref: "User" },
   },
