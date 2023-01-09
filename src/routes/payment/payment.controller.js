@@ -27,8 +27,8 @@ const createOrder = async (req, res) => {
                 brand_name: "Freelance Workers",
                 landing_page: "LOGIN", // LOGIN/BILLING/NO_PREFERENCE
                 user_action: "PAY_NOW",
-                return_url: "https://pf-back-production-b443.up.railway.app/capture-order",
-                cancel_url: "https://pf-back-production-b443.up.railway.app/cancel-order"
+                return_url: "http://localhost:3001/capture-order",
+                cancel_url: "http://localhost:3001/cancel-order"
             }
         }
 
@@ -70,11 +70,11 @@ const captureOrder = async (req, res) => {
             password: apiSecret
         }
     });
-    return res.redirect("https://pf-front-three.vercel.app/payment");
+    return res.redirect("http://localhost:5173/payment");
 }
 
 const cancelOrder = (req, res) => {
-    res.redirect("https://pf-front-three.vercel.app/paymentDeclined")
+    res.redirect("http://localhost:5173/paymentDeclined")
 }
 
 module.exports = {
