@@ -4,7 +4,6 @@ const uniqueValidator = require("mongoose-unique-validator");
 const ordersSchema = new Schema(
     {
         purchaseId: {type: String, required: true },
-        // servicesId: Array,
         status: String,
         userMail: String,
         services: [
@@ -13,7 +12,11 @@ const ordersSchema = new Schema(
               ref: "Service",
             },
           ],
-        buyerId: { type: Schema.Types.ObjectId, ref:"User" }
+        buyerId: { type: Schema.Types.ObjectId, ref:"User" },
+        evaluated:{
+          type:Boolean,
+          default:false
+        }
     },
     {
         timestamps: false,
