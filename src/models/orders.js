@@ -8,15 +8,14 @@ const ordersSchema = new Schema(
         userMail: String,
         services: [
             {
-              type: Schema.Types.ObjectId,
-              ref: "Service",
+              _id: {
+                type: Schema.Types.ObjectId,
+                ref: "Service",
+              },
+              rated: {type: Boolean, default: false}
             },
           ],
         buyerId: { type: Schema.Types.ObjectId, ref:"User" },
-        evaluated:{
-          type:Boolean,
-          default:false
-        }
     },
     {
         timestamps: false,
