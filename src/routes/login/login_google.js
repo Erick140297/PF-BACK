@@ -2,6 +2,7 @@ const { Router } = require("express");
 const router = Router();
 require("dotenv").config();
 const User = require("../../models/user");
+const sendMail = require("../../utils/nodemailer");
 
 router.post("/login_google", async (req, res) => {
   const { name, email } = req.body;
