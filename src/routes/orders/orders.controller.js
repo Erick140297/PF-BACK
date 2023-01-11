@@ -4,7 +4,7 @@ const User = require("../../models/user");
 const getOrder = async (req, res) => {
     try {
         const { id } = req.params;
-        const order = await Orders.find({buyerId:id}).populate("services");
+        const order = await Orders.find({buyerId:id}).populate("services").populate("history");
         
         res.status(200).json(order)
     } catch(error) {
@@ -19,15 +19,13 @@ const postOrder = async (req, res) => {
         const newOrder = new Orders({
             purchaseId,
             services: servicesId,
+            history: servicesId,
             status,
             buyerId: user._id
         });
         const saveOrder = await newOrder.save();
         user.orders = user.orders.concat(saveOrder._id);
         user.save();
-        
-
-
         res.status(200).json(saveOrder);
     } catch(error) {
         res.status(400).json(error);
