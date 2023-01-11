@@ -89,11 +89,11 @@ const captureOrder = async (req, res) => {
         userMail
     });
 
-    return res.redirect("http://localhost:5173/payment");
+    return res.redirect("http://127.0.0.1:5173/payment");
 }
 
 const cancelOrder = (req, res) => {
-    res.redirect("http://localhost:5173/paymentDeclined")
+    res.redirect("http://127.0.0.1:5173/paymentDeclined")
 }
 
 module.exports = {

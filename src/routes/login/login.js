@@ -15,7 +15,7 @@ router.post("/login", async (req, res) => {
       error: "invalid username or password",  
     });
   } else {
-    res.status(200).json({user});
+    res.status(200).json(user);
   } 
 });
 

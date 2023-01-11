@@ -29,12 +29,26 @@ const postOrder = async (req, res) => {
         res.status(200).json(saveOrder);
     } catch(error) {
         res.status(400).json(error);
-    }
-    
+    }   
+}
+
+const putOrder = async (req, res) => {
+    try {
+        const {orderId, serviceId} = req.body;
+        const order = await Orders.findById(orderId);
+
+        const arrayFilter = order.services.filter((e)=> e === serviceId)
+        order.services = arrayFilter
+        const saveOrder = await order.save();
+        res.status(200).json(saveOrder);
+    } catch(error) {
+        res.status(400).json(error);
+    }   
 }
 
 
 module.exports = {
     getOrder,
-    postOrder
+    postOrder,
+    putOrder
 }
