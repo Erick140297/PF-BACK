@@ -15,10 +15,10 @@ router.post("/login_google", async (req, res) => {
     <h1>Your account has been successfully created</h1>
   `;
     await sendMail(contentHtml, email);
-    await user.save();
-    res.status(200).json({ message: "Usuario creado" });
+    const savedUser = await user.save();
+    res.status(200).json(savedUser);
   } else {
-    res.status(200).json({ message: "Usuario ya registrado" });
+    res.status(200).json(user);
   }
 });
 
