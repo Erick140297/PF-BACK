@@ -33,6 +33,10 @@ const serviceSchema = new Schema(
       type:Number,
       default: 0
     },
+    deleteLogic: {
+      type: Boolean,
+      default: false,
+    },
     user: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
