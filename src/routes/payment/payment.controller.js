@@ -27,8 +27,8 @@ const createOrder = async (req, res) => {
                 brand_name: "Freelance Workers",
                 landing_page: "LOGIN", // LOGIN/BILLING/NO_PREFERENCE
                 user_action: "PAY_NOW",
-                return_url: "http://localhost:3001/capture-order",
-                cancel_url: "http://localhost:3001/cancel-order"
+                return_url: "https://pf-back-production-b443.up.railway.app/capture-order",
+                cancel_url: "https://pf-back-production-b443.up.railway.app/cancel-order"
             }
         }
 
@@ -82,18 +82,18 @@ const captureOrder = async (req, res) => {
     servicesId = JSON.parse(link.data.purchase_units[0].description);
     const userMail = servicesId.pop()
 
-    await axios.post(`http://localhost:3001/orders`, {
+    await axios.post(`https://pf-back-production-b443.up.railway.app/orders`, {
         purchaseId: link.data.id,
         status: link.data.status,
         servicesId,
         userMail
     });
 
-    return res.redirect("http://127.0.0.1:5173/payment");
+    return res.redirect("https://pf-front-three.vercel.app/payment");
 }
 
 const cancelOrder = (req, res) => {
-    res.redirect("http://127.0.0.1:5173/paymentDeclined")
+    res.redirect("https://pf-front-three.vercel.app/paymentDeclined")
 }
 
 module.exports = {
