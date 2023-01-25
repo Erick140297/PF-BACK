@@ -11,7 +11,6 @@ router.get("/", async (req, res) => {
     }
 })
 
-module.exports = router;
 
 //User
 const post_user = require("./routes_user/post_user");
